@@ -1,40 +1,99 @@
+
 # Parallel Sorting Algorithms Project
 
 **Course:** COMP 412 – Parallel and Distributed Systems  
 **Institution:** University of Eldoret  
 **Academic Year:** 2025/2026  
-**Submission Date:** 6 January 2026  
-**Version:** 1.0.0  
-**Last Updated:** January 2026
+**Submission Date:** 8 January 2026  
+**Version:** 3.0.0  
+**Last Updated:** January 2025
 
 ---
 
-## Project Summary
+## 📋 Table of Contents
 
-This repository contains a polished academic implementation and rigorous comparative study of sequential, parallel, and simulated distributed sorting algorithms implemented in Java. The work demonstrates algorithmic design, concurrent programming using modern Java constructs, empirical performance evaluation, and visualization of results. The README that follows has been enhanced to be professional, vibrant, and formal while preserving the original README content at the end of this file (unchanged).
+- [Project Overview](#-project-overview)
+- [Team Members](#-team-members)
+- [Project Structure](#-project-structure)
+- [Prerequisites](#-prerequisites)
+- [Installation Guide](#-installation-guide)
+- [Usage](#-usage)
+- [Features](#-features)
+- [Performance Metrics](#-performance-metrics)
+- [Weekly Progress](#-weekly-progress)
+- [Testing](#-testing)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Acknowledgements](#-acknowledgements)
+- [Project Status](#-project-status)
 
-Key pillars:
-- Clear, maintainable Java implementations of classic sorting algorithms and their parallelized counterparts.
-- Experiments measuring throughput, speedup, and efficiency across dataset scales.
-- Visualization assets and demos located in the repository `demo/` directory.
+---
+
+## 🚀 Project Overview
+
+This project is an academic implementation and comparative study of **sequential, parallel, and simulated distributed sorting algorithms** using Java concurrency frameworks. The primary goal is to[...] 
+
+### Key Objectives
+
+1. Implement classical sequential sorting algorithms  
+2. Design and implement parallel sorting techniques using Java concurrency  
+3. Simulate distributed processing using a master–worker model  
+4. Measure and analyze performance metrics such as speedup and efficiency  
+5. Provide comprehensive documentation and performance reports  
+
+### Technologies Used
+
+- **Programming Language:** Java 11+  
+- **Concurrency Frameworks:** ForkJoinPool, ExecutorService, Java Threads  
+- **Build Tool:** Apache Maven  
+- **IDE:** Visual Studio Code  
+- **Version Control:** Git & GitHub  
+- **Documentation:** Markdown, Javadoc, Google Docs  
 
 ---
 
-## Table of Contents
+## 👥 Team Members
 
-- Project Overview
-- Highlights
-- Demos & Diagrams
-- Installation
-- Quick Start
-- Usage Examples
-- Performance & Results
-- Development Notes
-- Contributing
-- License
-- Original README (preserved)
+| Name | Registration Number | Role |
+|-----|--------------------|------|
+| **Ekisa Joseph** | BIT/050/22 | Team Lead & Integration Specialist |
+| Selina Mwao | BIT/054/22 | Algorithm Developer |
+| Ekai Dickson | BIT/066/21 | Performance Analyst |
+| Churchill Bosire | BIT/032/22 | Documentation Specialist |
+| Cornelius Rotich | BIT/022/22 | Testing Engineer |
+| Lewis Gitari | BIT/013/22 | Code Quality Manager |
+| Faith Musyoka | BIT/010/22 | UI & Visualization Developer |
+| Linet Kipsat | BIT/046/22 | Dataset Manager |
+| Stephen Kinyamaria | BIT/012/22 | Deployment Specialist |
+| Clinton Ondaba | BIT/074/22 | Fault Tolerance Engineer |
 
 ---
+
+## 🏗️ Project Structure
+
+```text
+parallel-sorting-project/
+├── .vscode/                  # VS Code configuration
+├── src/
+│   ├── main/java/com/parallel/sorting/
+│   │   ├── algorithms/       # Sorting implementations
+│   │   │   ├── sequential/
+│   │   │   ├── parallel/
+│   │   │   └── distributed/
+│   │   ├── metrics/          # Performance measurement
+│   │   ├── utils/            # Utility classes
+│   │   ├── visualization/    # Charts and graphs
+│   │   └── Main.java         # Application entry point
+│   └── test/java/            # Test cases
+├── data/                     # Generated datasets
+├── docs/                     # Design and reports
+├── results/                  # Benchmark outputs
+├── pom.xml                   # Maven configuration
+├── README.md                 # Project documentation
+└── .gitignore
+
+```
 
 ## Highlights
 
@@ -147,102 +206,3 @@ https://docs.google.com/document/d/1rjHYDmjG38wYOcZP5O5KuICpEM6uslXQmfoXI5lqZbQ/
 
 ---
 
-## Original README (preserved, unchanged)
-
-The content below is the repository's original README preserved exactly as it existed prior to this update.
-
-# Parallel Sorting Algorithms Project
-
-**Course:** COMP 412 – Parallel and Distributed Systems  
-**Institution:** University of Eldoret  
-**Academic Year:** 2025/2026  
-**Submission Date:** 6 January 2026  
-**Version:** 1.0.0  
-**Last Updated:** December 2025
-
----
-
-## 📋 Table of Contents
-
-- [Project Overview](#-project-overview)
-- [Team Members](#-team-members)
-- [Project Structure](#-project-structure)
-- [Prerequisites](#-prerequisites)
-- [Installation Guide](#-installation-guide)
-- [Usage](#-usage)
-- [Features](#-features)
-- [Performance Metrics](#-performance-metrics)
-- [Weekly Progress](#-weekly-progress)
-- [Testing](#-testing)
-- [Documentation](#-documentation)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Acknowledgements](#-acknowledgements)
-- [Project Status](#-project-status)
-
----
-
-## 🚀 Project Overview
-
-This project is an academic implementation and comparative study of **sequential, parallel, and simulated distributed sorting algorithms** using Java concurrency frameworks. The primary goal is to[...] 
-
-### Key Objectives
-
-1. Implement classical sequential sorting algorithms  
-2. Design and implement parallel sorting techniques using Java concurrency  
-3. Simulate distributed processing using a master–worker model  
-4. Measure and analyze performance metrics such as speedup and efficiency  
-5. Provide comprehensive documentation and performance reports  
-
-### Technologies Used
-
-- **Programming Language:** Java 11+  
-- **Concurrency Frameworks:** ForkJoinPool, ExecutorService, Java Threads  
-- **Build Tool:** Apache Maven  
-- **IDE:** Visual Studio Code  
-- **Version Control:** Git & GitHub  
-- **Documentation:** Markdown, Javadoc, Google Docs  
-
----
-
-## 👥 Team Members
-
-| Name | Registration Number | Role |
-|-----|--------------------|------|
-| **Ekisa Joseph** | BIT/050/22 | Team Lead & Integration Specialist |
-| Selina Mwao | BIT/054/22 | Algorithm Developer |
-| Ekai Dickson | BIT/066/21 | Performance Analyst |
-| Churchill Bosire | BIT/032/22 | Documentation Specialist |
-| Cornelius Rotich | BIT/022/22 | Testing Engineer |
-| Lewis Gitari | BIT/013/22 | Code Quality Manager |
-| Faith Musyoka | BIT/010/22 | UI & Visualization Developer |
-| Linet Kipsat | BIT/046/22 | Dataset Manager |
-| Stephen Kinyamaria | BIT/012/22 | Deployment Specialist |
-| Clinton Ondaba | BIT/074/22 | Fault Tolerance Engineer |
-
----
-
-## 🏗️ Project Structure
-
-```text
-parallel-sorting-project/
-├── .vscode/                  # VS Code configuration
-├── src/
-│   ├── main/java/com/parallel/sorting/
-│   │   ├── algorithms/       # Sorting implementations
-│   │   │   ├── sequential/
-│   │   │   ├── parallel/
-│   │   │   └── distributed/
-│   │   ├── metrics/          # Performance measurement
-│   │   ├── utils/            # Utility classes
-│   │   ├── visualization/    # Charts and graphs
-│   │   └── Main.java         # Application entry point
-│   └── test/java/            # Test cases
-├── data/                     # Generated datasets
-├── docs/                     # Design and reports
-├── results/                  # Benchmark outputs
-├── pom.xml                   # Maven configuration
-├── README.md                 # Project documentation
-└── .gitignore
-
-```
