@@ -32,7 +32,7 @@
 
 ## 🚀 Project Overview
 
-This project is an academic implementation and comparative study of **sequential, parallel, and simulated distributed sorting algorithms** using Java concurrency frameworks. The primary goal is to[...] 
+This project is an academic implementation and comparative study of sequential, parallel, and simulated distributed sorting algorithms using Java concurrency frameworks. The primary goal is to demonstrate and analyze the performance gains, limitations, and trade-offs of parallel and distributed computing approaches compared to traditional sequential methods.
 
 ### Key Objectives
 
