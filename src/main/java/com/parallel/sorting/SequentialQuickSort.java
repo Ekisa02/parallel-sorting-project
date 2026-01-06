@@ -42,4 +42,14 @@ public class SequentialQuickSort implements SortingAlgorithm {
     public String getName() {
         return "Sequential Quick Sort";
     }
+    
+    @Override
+    public boolean isParallel() {
+        return false;
+    }
+    
+    @Override
+    public int getThreadCount() {
+        return 1;
+    }
 }
