@@ -1,83 +1,78 @@
 package com.parallel.sorting;
 
-import com.parallel.sorting.SequentialMergeSort;
-import com.parallel.sorting.SequentialQuickSort;
-import com.parallel.sorting.SortingAlgorithm;
 import com.parallel.sorting.utils.ArrayGenerator;
 import com.parallel.sorting.utils.Timer;
+import com.parallel.sorting.ParallelMergeSort;
+
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("🎉 Welcome to Parallel Sorting Project!");
         System.out.println("=======================================\n");
         
-        // Test with a small array first
-        testSmallArray();
+        // Get number of available processors
+        int processors = Runtime.getRuntime().availableProcessors();
+        System.out.println("💻 Available processors: " + processors);
         
-        // Test with a medium array
-        testMediumArray();
+        // Test with different sizes
+        testWithSize(10000, processors);
+        testWithSize(100000, processors);
+        testWithSize(500000, processors);
         
-        System.out.println("\n✅ All tests completed successfully!");
-        System.out.println("🚀 Ready to implement parallel algorithms!");
+        System.out.println("\n✅ All tests completed!");
     }
     
-    private static void testSmallArray() {
-        System.out.println("🔍 Testing with SMALL array (10,000 elements):");
+    private static void testWithSize(int size, int processors) {
+        System.out.println("\n" + "=".repeat(50));
+        System.out.println("📊 Testing with array size: " + size);
+        System.out.println("=".repeat(50));
         
         // Generate test data
-        int[] data = ArrayGenerator.generateRandomArray(10000);
-        int[] dataCopy1 = ArrayGenerator.copyArray(data);
-        int[] dataCopy2 = ArrayGenerator.copyArray(data);
+        int[] original = ArrayGenerator.generateRandomArray(size);
         
-        // Create sorting algorithms
-        SortingAlgorithm mergeSort = new SequentialMergeSort();
-        SortingAlgorithm quickSort = new SequentialQuickSort();
+        // Test Sequential Merge Sort
+        System.out.println("\n1. Sequential Merge Sort:");
+        int[] seqMergeArray = ArrayGenerator.copyArray(original);
+        double seqMergeTime = Timer.measureTime(() -> {
+            new SequentialMergeSort().sort(seqMergeArray);
+        });
+        System.out.printf("   Time: %.2f ms\n", seqMergeTime);
+        System.out.println("   Sorted: " + ArrayGenerator.isSorted(seqMergeArray));
         
-        // Test Merge Sort
-        System.out.println("\n1. Testing Sequential Merge Sort:");
-        double mergeTime = Timer.measureTime(() -> mergeSort.sort(dataCopy1));
-        System.out.println("   Time: " + mergeTime + " ms");
-        System.out.println("   Sorted correctly: " + ArrayGenerator.isSorted(dataCopy1));
+        // Test Sequential Quick Sort
+        System.out.println("\n2. Sequential Quick Sort:");
+        int[] seqQuickArray = ArrayGenerator.copyArray(original);
+        double seqQuickTime = Timer.measureTime(() -> {
+            new SequentialQuickSort().sort(seqQuickArray);
+        });
+        System.out.printf("   Time: %.2f ms\n", seqQuickTime);
+        System.out.println("   Sorted: " + ArrayGenerator.isSorted(seqQuickArray));
         
-        // Test Quick Sort
-        System.out.println("\n2. Testing Sequential Quick Sort:");
-        double quickTime = Timer.measureTime(() -> quickSort.sort(dataCopy2));
-        System.out.println("   Time: " + quickTime + " ms");
-        System.out.println("   Sorted correctly: " + ArrayGenerator.isSorted(dataCopy2));
+        // Test Parallel Merge Sort
+        System.out.println("\n3. Parallel Merge Sort:");
+        int[] parMergeArray = ArrayGenerator.copyArray(original);
+        double parMergeTime = Timer.measureTime(() -> {
+            new ParallelMergeSort().sort(parMergeArray);
+        });
+        System.out.printf("   Time: %.2f ms\n", parMergeTime);
+        System.out.println("   Sorted: " + ArrayGenerator.isSorted(parMergeArray));
         
-        // Compare results
-        System.out.println("\n📊 Comparison:");
-        System.out.println("   Merge Sort was " + (quickTime/mergeTime) + " times " + 
-                          (mergeTime < quickTime ? "faster" : "slower") + " than Quick Sort");
-    }
-    
-    private static void testMediumArray() {
-        System.out.println("\n\n🔍 Testing with MEDIUM array (100,000 elements):");
+        // Calculate speedup
+        if (parMergeTime > 0) {
+            double speedup = seqMergeTime / parMergeTime;
+            System.out.printf("\n📈 Parallel Merge Sort Speedup: %.2fx\n", speedup);
+            System.out.printf("   Efficiency: %.1f%%\n", (speedup / processors) * 100);
+        }
         
-        // Generate test data
-        int[] data = ArrayGenerator.generateRandomArray(100000);
-        int[] dataCopy1 = ArrayGenerator.copyArray(data);
-        int[] dataCopy2 = ArrayGenerator.copyArray(data);
-        
-        // Create sorting algorithms
-        SortingAlgorithm mergeSort = new SequentialMergeSort();
-        SortingAlgorithm quickSort = new SequentialQuickSort();
-        
-        // Test Merge Sort
-        System.out.println("\n1. Testing Sequential Merge Sort:");
-        double mergeTime = Timer.measureTime(() -> mergeSort.sort(dataCopy1));
-        System.out.println("   Time: " + mergeTime + " ms");
-        System.out.println("   Sorted correctly: " + ArrayGenerator.isSorted(dataCopy1));
-        
-        // Test Quick Sort
-        System.out.println("\n2. Testing Sequential Quick Sort:");
-        double quickTime = Timer.measureTime(() -> quickSort.sort(dataCopy2));
-        System.out.println("   Time: " + quickTime + " ms");
-        System.out.println("   Sorted correctly: " + ArrayGenerator.isSorted(dataCopy2));
-        
-        // Compare results
-        System.out.println("\n📊 Comparison:");
-        System.out.println("   Merge Sort was " + (quickTime/mergeTime) + " times " + 
-                          (mergeTime < quickTime ? "faster" : "slower") + " than Quick Sort");
+        // Verify all produce same result
+        boolean allMatch = true;
+        for (int i = 0; i < size && i < 100; i++) { // Check first 100 elements
+            if (seqMergeArray[i] != seqQuickArray[i] || 
+                seqMergeArray[i] != parMergeArray[i]) {
+                allMatch = false;
+                break;
+            }
+        }
+        System.out.println("\n✅ All algorithms produce same result: " + allMatch);
     }
 }

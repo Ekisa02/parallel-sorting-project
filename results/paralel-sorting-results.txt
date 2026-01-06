@@ -1,0 +1,70 @@
+🎉 Welcome to Parallel Sorting Project!
+=======================================
+
+💻 Available processors: 4
+
+==================================================
+📊 Testing with array size: 10000
+==================================================
+
+1. Sequential Merge Sort:
+   Time: 12.89 ms
+   Sorted: true
+
+2. Sequential Quick Sort:
+   Time: 9.67 ms
+   Sorted: true
+
+3. Parallel Merge Sort:
+   Time: 28.10 ms
+   Sorted: true
+
+📈 Parallel Merge Sort Speedup: 0.46x
+   Efficiency: 11.5%
+
+✅ All algorithms produce same result: true
+
+==================================================
+📊 Testing with array size: 100000
+==================================================
+
+1. Sequential Merge Sort:
+   Time: 74.24 ms
+   Sorted: true
+
+2. Sequential Quick Sort:
+   Time: 17.03 ms
+   Sorted: true
+
+3. Parallel Merge Sort:
+   Time: 64.61 ms
+   Sorted: true
+
+📈 Parallel Merge Sort Speedup: 1.15x
+   Efficiency: 28.7%
+
+✅ All algorithms produce same result: true
+
+==================================================
+📊 Testing with array size: 500000
+==================================================
+
+1. Sequential Merge Sort:
+   Time: 146.10 ms
+   Sorted: true
+
+2. Sequential Quick Sort:
+   Time: 75.66 ms
+   Sorted: true
+
+3. Parallel Merge Sort:
+   Time: 72.18 ms
+   Sorted: true
+
+📈 Parallel Merge Sort Speedup: 2.02x
+   Efficiency: 50.6%
+
+✅ All algorithms produce same result: true
+
+✅ All tests completed!
+                             
