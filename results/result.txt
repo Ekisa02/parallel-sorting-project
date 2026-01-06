@@ -1,0 +1,32 @@
+🎉 Welcome to Parallel Sorting Project!
+=======================================
+
+🔍 Testing with SMALL array (10,000 elements):
+
+1. Testing Sequential Merge Sort:
+   Time: 9.087682 ms
+   Sorted correctly: true
+
+2. Testing Sequential Quick Sort:
+   Time: 7.364859 ms
+   Sorted correctly: true
+
+📊 Comparison:
+   Merge Sort was 0.810422173663207 times slower than Quick Sort
+
+
+🔍 Testing with MEDIUM array (100,000 elements):
+
+1. Testing Sequential Merge Sort:
+   Time: 74.249029 ms
+   Sorted correctly: true
+
+2. Testing Sequential Quick Sort:
+   Time: 25.402193 ms
+   Sorted correctly: true
+
+📊 Comparison:
+   Merge Sort was 0.34212155151550877 times slower than Quick Sort
+
+✅ All tests completed successfully!
+🚀 Ready to implement parallel algorithms!
